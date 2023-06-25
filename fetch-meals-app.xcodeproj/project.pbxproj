@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		409D82F22A48BA880066A4F6 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82F12A48BA880066A4F6 /* MealTableViewCell.swift */; };
 		40D3B22F2A4692060018797D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B22E2A4692060018797D /* AppDelegate.swift */; };
 		40D3B2312A4692060018797D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2302A4692060018797D /* SceneDelegate.swift */; };
 		40D3B2332A4692060018797D /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2322A4692060018797D /* MealsViewController.swift */; };
@@ -15,12 +16,12 @@
 		40D3B24C2A47B23C0018797D /* MealService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B24B2A47B23C0018797D /* MealService.swift */; };
 		40D3B2502A47B3070018797D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B24F2A47B3070018797D /* Meal.swift */; };
 		40D3B2532A47B78E0018797D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2522A47B78E0018797D /* NetworkError.swift */; };
-		40D3B2552A47D9E00018797D /* MealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2542A47D9E00018797D /* MealsView.swift */; };
 		40D3B2572A47DA3C0018797D /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2562A47DA3C0018797D /* MealViewModel.swift */; };
 		40D3B2592A47E3A90018797D /* MealsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2582A47E3A90018797D /* MealsResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		409D82F12A48BA880066A4F6 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		40D3B22B2A4692060018797D /* fetch-meals-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fetch-meals-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D3B22E2A4692060018797D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40D3B2302A4692060018797D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		40D3B24B2A47B23C0018797D /* MealService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealService.swift; sourceTree = "<group>"; };
 		40D3B24F2A47B3070018797D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		40D3B2522A47B78E0018797D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		40D3B2542A47D9E00018797D /* MealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsView.swift; sourceTree = "<group>"; };
 		40D3B2562A47DA3C0018797D /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		40D3B2582A47E3A90018797D /* MealsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,7 +106,7 @@
 		40D3B2472A47A74D0018797D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				40D3B2542A47D9E00018797D /* MealsView.swift */,
+				409D82F12A48BA880066A4F6 /* MealTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,12 +217,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				40D3B2502A47B3070018797D /* Meal.swift in Sources */,
+				409D82F22A48BA880066A4F6 /* MealTableViewCell.swift in Sources */,
 				40D3B2572A47DA3C0018797D /* MealViewModel.swift in Sources */,
 				40D3B24C2A47B23C0018797D /* MealService.swift in Sources */,
 				40D3B2332A4692060018797D /* MealsViewController.swift in Sources */,
 				40D3B2532A47B78E0018797D /* NetworkError.swift in Sources */,
 				40D3B2592A47E3A90018797D /* MealsResponse.swift in Sources */,
-				40D3B2552A47D9E00018797D /* MealsView.swift in Sources */,
 				40D3B22F2A4692060018797D /* AppDelegate.swift in Sources */,
 				40D3B2312A4692060018797D /* SceneDelegate.swift in Sources */,
 			);

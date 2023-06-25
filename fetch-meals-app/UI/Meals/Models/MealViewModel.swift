@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct MealViewModel: Identifiable {
+struct MealViewModel: Hashable {
     
-    let id: String
+    let mealId: String
     let mealName: String
     let thumbnailUrl: String
     
