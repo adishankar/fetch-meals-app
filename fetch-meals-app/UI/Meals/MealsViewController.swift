@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MealsViewController.swift
 //  fetch-meals-app
 //
 //  Created by Adi Shankar on 6/23/23.
@@ -7,20 +7,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MealsViewController: UIViewController {
     
-    private var headerLabel: UILabel!
+    private var headerLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .boldSystemFont(ofSize: 36)
+        label.text = "Fetch Meals"
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        setupViews()
+    }
+    
+    private func setupViews() {
         self.view.backgroundColor = .white
-        
-        self.headerLabel = UILabel()
-        headerLabel.font = .boldSystemFont(ofSize: 36)
-        headerLabel.text = "Fetch Meals"
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addSubview(headerLabel)
         let headerLeadingConstraint = NSLayoutConstraint(item: headerLabel, attribute: .leading, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 20)
