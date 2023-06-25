@@ -6,16 +6,9 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MealsViewController: UIViewController {
-    
-    private var headerLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: 36)
-        label.text = "Fetch Meals"
-        return label
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +19,20 @@ class MealsViewController: UIViewController {
     private func setupViews() {
         self.view.backgroundColor = .white
         
-        self.view.addSubview(headerLabel)
-        let headerLeadingConstraint = NSLayoutConstraint(item: headerLabel, attribute: .leading, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 20)
-        let headerTopConstraint = NSLayoutConstraint(item: headerLabel, attribute: .top, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 20)
-        self.view.addConstraints([headerLeadingConstraint, headerTopConstraint])
+        let hostingController = UIHostingController(rootView: MealsView())
+        addChild(hostingController)
+        let mealsView = hostingController.view!
+        mealsView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(mealsView)
+        hostingController.didMove(toParent: self)
+        
+        NSLayoutConstraint.activate([
+            mealsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mealsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mealsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            mealsView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        
     }
 
 

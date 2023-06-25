@@ -13,7 +13,7 @@ class MealService {
     
     private static let MEALS_BASE_URL = "https://themealdb.com/api/json/v1/1"
     
-    public static func retrieveMeals(_ type: String) async -> Result<[Meal], NetworkError> {
+    public static func retrieveMeals(_ type: String) async -> Result<MealsResponse, NetworkError> {
         
         // build get all meals url
         let components = URLComponents(string: MEALS_BASE_URL + "/filter.php?c=\(type)")
@@ -23,9 +23,10 @@ class MealService {
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            let mealsResponse = try decoder.decode([Meal].self, from: data)
+            let mealsResponse = try decoder.decode(MealsResponse.self, from: data)
             return .success(mealsResponse)
-        } catch {
+        } catch (let error) {
+            debugPrint(error)
             return .failure(NetworkError.requestError)
         }
     }
