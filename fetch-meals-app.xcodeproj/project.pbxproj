@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		409D82F22A48BA880066A4F6 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82F12A48BA880066A4F6 /* MealTableViewCell.swift */; };
+		409D82F52A48EBAC0066A4F6 /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82F42A48EBAC0066A4F6 /* MealDetailViewController.swift */; };
 		40D3B22F2A4692060018797D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B22E2A4692060018797D /* AppDelegate.swift */; };
 		40D3B2312A4692060018797D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2302A4692060018797D /* SceneDelegate.swift */; };
 		40D3B2332A4692060018797D /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2322A4692060018797D /* MealsViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		409D82F12A48BA880066A4F6 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		409D82F42A48EBAC0066A4F6 /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		40D3B22B2A4692060018797D /* fetch-meals-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fetch-meals-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D3B22E2A4692060018797D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40D3B2302A4692060018797D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		409D82F32A48EB700066A4F6 /* MealDetail */ = {
+			isa = PBXGroup;
+			children = (
+				409D82F42A48EBAC0066A4F6 /* MealDetailViewController.swift */,
+			);
+			path = MealDetail;
+			sourceTree = "<group>";
+		};
 		40D3B2222A4692060018797D = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 		40D3B2422A47A2E70018797D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				409D82F32A48EB700066A4F6 /* MealDetail */,
 				40D3B2432A47A4990018797D /* Meals */,
 			);
 			path = UI;
@@ -224,6 +235,7 @@
 				40D3B2532A47B78E0018797D /* NetworkError.swift in Sources */,
 				40D3B2592A47E3A90018797D /* MealsResponse.swift in Sources */,
 				40D3B22F2A4692060018797D /* AppDelegate.swift in Sources */,
+				409D82F52A48EBAC0066A4F6 /* MealDetailViewController.swift in Sources */,
 				40D3B2312A4692060018797D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

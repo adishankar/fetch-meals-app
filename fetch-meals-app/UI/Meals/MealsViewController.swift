@@ -27,7 +27,11 @@ class MealsViewController: UIViewController {
     private let cellReuseIdentifier = "cell"
     private lazy var dataSource = makeDataSource()
     
-    var meals = [MealViewModel]()
+    var meals = [MealViewModel]() {
+        didSet {
+            update(sectionData: meals)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +75,13 @@ extension MealsViewController: UITableViewDelegate {
         case Meals
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mealViewModel = meals[indexPath.row]
+        let mealDetailVC = MealDetailViewController()
+        mealDetailVC.mealViewModel = mealViewModel
+        navigationController?.pushViewController(mealDetailVC, animated: true)
+    }
+    
     func makeDataSource() -> UITableViewDiffableDataSource<Section, MealViewModel> {
         let reuseIdentifier = cellReuseIdentifier
         return UITableViewDiffableDataSource(
@@ -83,8 +94,6 @@ extension MealsViewController: UITableViewDelegate {
                 return cell
             })
     }
-    
-    
     
     func update(sectionData: [MealViewModel]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, MealViewModel>()
@@ -104,7 +113,7 @@ extension MealsViewController {
             switch mealsResponse {
             case .success(let mealsResponse):
                 let mealViewModels = toViewModel(mealsResponse)
-                update(sectionData: mealViewModels)
+                meals = mealViewModels
             case .failure(let error):
                 debugPrint(error)
             }
