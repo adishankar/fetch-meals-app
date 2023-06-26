@@ -3,4 +3,70 @@
    uuid = "79BDD37C-3655-4A5B-910F-A10DC04BE02F"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "294E440F-F41A-4724-8D7D-CC6CD9C6E45C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "fetch-meals-app/Services/Meals/MealService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "retrieveMealDetail(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5D600FD9-E2C1-4132-BE08-09583E1D98AC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "fetch-meals-app/Services/Meals/MealService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "retrieveMealDetail(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5D600FD9-E2C1-4132-BE08-09583E1D98AC - 85f3f779b5e7e81d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for static fetch_meals_app.MealService.retrieveMealDetail(Swift.String) async -&gt; Swift.Result&lt;fetch_meals_app.MealDetailResponse, fetch_meals_app.NetworkError&gt;"
+                  moduleName = "fetch-meals-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adi/dev/iOS/fetch/fetch-meals-app/fetch-meals-app/Services/Meals/MealService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "1227">
+               </Location>
+               <Location
+                  uuid = "5D600FD9-E2C1-4132-BE08-09583E1D98AC - 522b69985b151a06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for static fetch_meals_app.MealService.retrieveMealDetail(Swift.String) async -&gt; Swift.Result&lt;fetch_meals_app.MealDetailResponse, fetch_meals_app.NetworkError&gt;"
+                  moduleName = "fetch-meals-app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adi/dev/iOS/fetch/fetch-meals-app/fetch-meals-app/Services/Meals/MealService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "484">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

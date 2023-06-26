@@ -16,7 +16,7 @@ class MealDetailViewController: UIViewController {
         return label
     }()
     
-    var mealViewModel: MealViewModel!
+    var mealDetailViewModel: MealDetailViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class MealDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        headerLabel.text = mealViewModel.mealName
+        headerLabel.text = mealDetailViewModel.mealName
     }
     
     private func setupViews() {

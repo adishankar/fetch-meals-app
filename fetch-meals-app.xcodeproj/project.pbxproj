@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		409D82F22A48BA880066A4F6 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82F12A48BA880066A4F6 /* MealTableViewCell.swift */; };
 		409D82F52A48EBAC0066A4F6 /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82F42A48EBAC0066A4F6 /* MealDetailViewController.swift */; };
+		409D82F72A49EF930066A4F6 /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82F62A49EF930066A4F6 /* MealDetail.swift */; };
+		409D82F92A4A17000066A4F6 /* MealDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82F82A4A17000066A4F6 /* MealDetailResponse.swift */; };
+		409D82FC2A4A1D1C0066A4F6 /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82FB2A4A1D1C0066A4F6 /* MealDetailViewModel.swift */; };
+		409D82FE2A4A1E440066A4F6 /* MealIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82FD2A4A1E440066A4F6 /* MealIngredientViewModel.swift */; };
 		40D3B22F2A4692060018797D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B22E2A4692060018797D /* AppDelegate.swift */; };
 		40D3B2312A4692060018797D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2302A4692060018797D /* SceneDelegate.swift */; };
 		40D3B2332A4692060018797D /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2322A4692060018797D /* MealsViewController.swift */; };
@@ -24,6 +28,10 @@
 /* Begin PBXFileReference section */
 		409D82F12A48BA880066A4F6 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		409D82F42A48EBAC0066A4F6 /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
+		409D82F62A49EF930066A4F6 /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
+		409D82F82A4A17000066A4F6 /* MealDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailResponse.swift; sourceTree = "<group>"; };
+		409D82FB2A4A1D1C0066A4F6 /* MealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModel.swift; sourceTree = "<group>"; };
+		409D82FD2A4A1E440066A4F6 /* MealIngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealIngredientViewModel.swift; sourceTree = "<group>"; };
 		40D3B22B2A4692060018797D /* fetch-meals-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fetch-meals-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D3B22E2A4692060018797D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40D3B2302A4692060018797D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,9 +60,19 @@
 		409D82F32A48EB700066A4F6 /* MealDetail */ = {
 			isa = PBXGroup;
 			children = (
+				409D82FA2A4A1CFD0066A4F6 /* Models */,
 				409D82F42A48EBAC0066A4F6 /* MealDetailViewController.swift */,
 			);
 			path = MealDetail;
+			sourceTree = "<group>";
+		};
+		409D82FA2A4A1CFD0066A4F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				409D82FB2A4A1D1C0066A4F6 /* MealDetailViewModel.swift */,
+				409D82FD2A4A1E440066A4F6 /* MealIngredientViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		40D3B2222A4692060018797D = {
@@ -145,6 +163,8 @@
 			children = (
 				40D3B24F2A47B3070018797D /* Meal.swift */,
 				40D3B2582A47E3A90018797D /* MealsResponse.swift */,
+				409D82F62A49EF930066A4F6 /* MealDetail.swift */,
+				409D82F82A4A17000066A4F6 /* MealDetailResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,11 +249,15 @@
 			files = (
 				40D3B2502A47B3070018797D /* Meal.swift in Sources */,
 				409D82F22A48BA880066A4F6 /* MealTableViewCell.swift in Sources */,
+				409D82FC2A4A1D1C0066A4F6 /* MealDetailViewModel.swift in Sources */,
 				40D3B2572A47DA3C0018797D /* MealViewModel.swift in Sources */,
+				409D82FE2A4A1E440066A4F6 /* MealIngredientViewModel.swift in Sources */,
 				40D3B24C2A47B23C0018797D /* MealService.swift in Sources */,
 				40D3B2332A4692060018797D /* MealsViewController.swift in Sources */,
 				40D3B2532A47B78E0018797D /* NetworkError.swift in Sources */,
 				40D3B2592A47E3A90018797D /* MealsResponse.swift in Sources */,
+				409D82F72A49EF930066A4F6 /* MealDetail.swift in Sources */,
+				409D82F92A4A17000066A4F6 /* MealDetailResponse.swift in Sources */,
 				40D3B22F2A4692060018797D /* AppDelegate.swift in Sources */,
 				409D82F52A48EBAC0066A4F6 /* MealDetailViewController.swift in Sources */,
 				40D3B2312A4692060018797D /* SceneDelegate.swift in Sources */,

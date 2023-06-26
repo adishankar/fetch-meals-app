@@ -31,4 +31,21 @@ class MealService {
         }
     }
     
+    public static func retrieveMealDetail(_ mealId: String) async -> Result<MealDetailResponse, NetworkError> {
+        
+        // build get meal detail url
+        let components = URLComponents(string: MEALS_BASE_URL + "/lookup.php?i=\(mealId)")
+        guard let url = components?.url else {
+            return .failure(NetworkError.urlError)
+        }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let mealDetailResponse = try decoder.decode(MealDetailResponse.self, from: data)
+            return .success(mealDetailResponse)
+        } catch (let error) {
+            debugPrint(error)
+            return .failure(NetworkError.requestError)
+        }
+    }
 }
