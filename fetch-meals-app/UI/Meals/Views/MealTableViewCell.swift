@@ -11,9 +11,16 @@ class MealTableViewCell: UITableViewCell {
     
     var model: MealViewModel!
     
+    let mealThumbnail: UIImageView = {
+        let imageView = UIImageView()
+        
+        return imageView
+    }()
+    
     let mealLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16)
+        label.numberOfLines = 0
         
         return label
     }()
@@ -23,12 +30,22 @@ class MealTableViewCell: UITableViewCell {
         
         contentView.backgroundColor = UIColor.white
         
+        mealThumbnail.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(mealThumbnail)
+        NSLayoutConstraint.activate([
+            mealThumbnail.widthAnchor.constraint(equalToConstant: 50),
+            mealThumbnail.heightAnchor.constraint(equalToConstant: 50),
+            mealThumbnail.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            mealThumbnail.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            mealThumbnail.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+        ])
+        
         mealLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(mealLabel)
         NSLayoutConstraint.activate([
-            mealLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            mealLabel.leadingAnchor.constraint(equalTo: mealThumbnail.trailingAnchor, constant: 10),
             mealLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            mealLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            mealLabel.centerYAnchor.constraint(equalTo: mealThumbnail.centerYAnchor)
         ])
     }
     
@@ -39,6 +56,7 @@ class MealTableViewCell: UITableViewCell {
     func setup(_ model: MealViewModel) {
         self.model = model
         mealLabel.text = model.mealName
+        mealThumbnail.imageFromURL(model.thumbnailUrl)
     }
     
 }

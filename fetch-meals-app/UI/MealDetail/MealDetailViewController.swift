@@ -12,6 +12,7 @@ class MealDetailViewController: UIViewController {
     var headerLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 36)
+        label.numberOfLines = 0
         
         return label
     }()
