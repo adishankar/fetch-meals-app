@@ -179,14 +179,16 @@ extension MealsViewController {
         
         // using corresponding strIngredientN and strMeasureN to build ingredient and measurement pairing
         var ingredients: [MealIngredientViewModel] = []
+        var ingredientNames = Set<String>() // check for duplicate ingredients
         
         let mealDetailObject: AnyObject = mealDetail as NSObject
         for i in 1...20 {
             let ingredientKey = "strIngredient\(i)"
             let measurementKey = "strMeasure\(i)"
 
-            if let ingredientValue = mealDetailObject.value(forKey: ingredientKey) as? String, !ingredientValue.isEmpty {
+            if let ingredientValue = mealDetailObject.value(forKey: ingredientKey) as? String, !ingredientValue.isEmpty, !ingredientNames.contains(ingredientValue) {
                 let measurementString = mealDetailObject.value(forKey: measurementKey) as? String
+                ingredientNames.insert(ingredientValue)
                 ingredients.append(
                     MealIngredientViewModel(ingredientName: ingredientValue, ingredientMeasurement: measurementString)
                 )

@@ -23,7 +23,7 @@ struct MealDetailView: View {
                         Image(systemName: "fork.knife")
                     }
                     .frame(maxWidth: .infinity, maxHeight: 200)
-                    .cornerRadius(20)
+                    .cornerRadius(0)
                     Spacer()
                 }
                 HStack {
@@ -32,6 +32,49 @@ struct MealDetailView: View {
                         .bold()
                     Spacer()
                 }
+                HStack {
+                    Text("Ingredients")
+                        .font(.title2)
+                        .bold()
+                    Spacer()
+                }
+                .padding(.top, 10)
+                VStack {
+                    ForEach(mealDetailViewModel.ingredients, id: \.ingredientName) { mealDetailIngredient in
+                        HStack {
+                            if let measurement = mealDetailIngredient.ingredientMeasurement {
+                                let ingredientText = "\(mealDetailIngredient.ingredientName), \(measurement)"
+                                Text(ingredientText)
+                                    .font(.subheadline)
+                            }
+                            else {
+                                let ingredientText = "\(mealDetailIngredient.ingredientName)"
+                                Text(ingredientText)
+                                    .font(.subheadline)
+                            }
+                            Spacer()
+                        }
+                    }
+                }
+                HStack {
+                    Text("Instructions")
+                        .font(.title2)
+                        .bold()
+                    Spacer()
+                }
+                .padding(.top, 10)
+                VStack {
+                    ForEach(0..<mealDetailViewModel.instructions.count, id: \.self) { i in
+                        HStack {
+                            let instructionText = "\(i+1). \(mealDetailViewModel.instructions[i])"
+                            Text(instructionText)
+                            Spacer()
+                        }
+                        .padding(.bottom, 4)
+                        
+                    }
+                }
+                .padding(2)
             }
         }
         .padding()
