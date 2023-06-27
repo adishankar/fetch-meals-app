@@ -170,7 +170,7 @@ extension MealsViewController {
         }
         
         // split tag field on ',' to list tags
-        var tags: [String] = mealDetail.strTags?.components(separatedBy: ",") ?? []
+        let tags: [String] = mealDetail.strTags?.components(separatedBy: ",") ?? []
         
         // split instruction field on '\r\n' characters to list instructions
         let instructions: [String] = mealDetail.strInstructions

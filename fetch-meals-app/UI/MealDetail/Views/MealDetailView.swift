@@ -33,6 +33,25 @@ struct MealDetailView: View {
                     Spacer()
                 }
                 HStack {
+                    Text("Tags:")
+                        .font(.headline)
+                        .padding(.trailing, 4)
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(mealDetailViewModel.tags, id: \.self) { tag in
+                                HStack {
+                                    Text(tag)
+                                        .lineLimit(1)
+                                        .padding(8)
+                                        .background(Color.yellow.opacity(0.1))
+                                        .cornerRadius(10)
+                                }
+                            }
+                        }
+                    }
+                    Spacer()
+                }
+                HStack {
                     Text("Ingredients")
                         .font(.title2)
                         .bold()
