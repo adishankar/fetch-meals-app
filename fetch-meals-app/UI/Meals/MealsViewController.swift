@@ -28,6 +28,8 @@ class MealsViewController: UIViewController {
     private let cellReuseIdentifier = "cell"
     private lazy var dataSource = makeDataSource()
     
+    private let mealService: MealsDataServiceProtocol
+    
     var meals = [MealViewModel]() {
         didSet {
             update(sectionData: meals)
@@ -38,7 +40,16 @@ class MealsViewController: UIViewController {
             selectMeal()
         }
     }
-
+    
+    init(mealService: MealsDataServiceProtocol = MealService()) {
+        self.mealService = mealService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -129,7 +140,7 @@ extension MealsViewController {
     
     private func retrieveMeals(_ type: String) {
         Task {
-            let mealsResponse = await MealService.retrieveMeals(type)
+            let mealsResponse = await mealService.retrieveMeals(type)
             switch mealsResponse {
             case .success(let mealsResponse):
                 let mealViewModels = toViewModel(mealsResponse)
@@ -153,7 +164,7 @@ extension MealsViewController {
     
     private func retrieveMealDetails(_ mealId: String) {
         Task {
-            let mealDetailResponse = await MealService.retrieveMealDetail(mealId)
+            let mealDetailResponse = await mealService.retrieveMealDetail(mealId)
             switch mealDetailResponse {
             case .success(let mealDetailResponse):
                 let mealDetailViewModel = toViewModel(mealDetailResponse)

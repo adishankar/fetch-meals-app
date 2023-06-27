@@ -7,13 +7,13 @@
 
 import Foundation
 
-class MealService {
+class MealService: MealsDataServiceProtocol {
     
-    private static let decoder = JSONDecoder()
+    private let decoder = JSONDecoder()
     
-    private static let MEALS_BASE_URL = "https://themealdb.com/api/json/v1/1"
+    private let MEALS_BASE_URL = "https://themealdb.com/api/json/v1/1"
     
-    public static func retrieveMeals(_ type: String) async -> Result<MealsResponse, NetworkError> {
+    public func retrieveMeals(_ type: String) async -> Result<MealsResponse, NetworkError> {
         
         // build get all meals url
         let components = URLComponents(string: MEALS_BASE_URL + "/filter.php?c=\(type)")
@@ -31,7 +31,7 @@ class MealService {
         }
     }
     
-    public static func retrieveMealDetail(_ mealId: String) async -> Result<MealDetailResponse, NetworkError> {
+    public func retrieveMealDetail(_ mealId: String) async -> Result<MealDetailResponse, NetworkError> {
         
         // build get meal detail url
         let components = URLComponents(string: MEALS_BASE_URL + "/lookup.php?i=\(mealId)")
