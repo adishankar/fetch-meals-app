@@ -28,7 +28,7 @@ class MealsViewController: UIViewController {
     private let cellReuseIdentifier = "cell"
     private lazy var dataSource = makeDataSource()
     
-    private let mealService: MealsDataServiceProtocol
+    private let mealService = MealService()
     
     var meals = [MealViewModel]() {
         didSet {
@@ -39,15 +39,6 @@ class MealsViewController: UIViewController {
         didSet {
             selectMeal()
         }
-    }
-    
-    init(mealService: MealsDataServiceProtocol = MealService()) {
-        self.mealService = mealService
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -138,7 +129,7 @@ extension MealsViewController: UITableViewDelegate {
 
 extension MealsViewController {
     
-    private func retrieveMeals(_ type: String) {
+    func retrieveMeals(_ type: String) {
         Task {
             let mealsResponse = await mealService.retrieveMeals(type)
             switch mealsResponse {
@@ -151,18 +142,20 @@ extension MealsViewController {
         }
     }
     
-    private func toViewModel(_ mealsResponse: MealsResponse) -> [MealViewModel] {
+    func toViewModel(_ mealsResponse: MealsResponse) -> [MealViewModel] {
         guard let meals = mealsResponse.meals else {
             return []
         }
-        return meals.map { toViewModel($0) }
+        return meals
+            .map { toViewModel($0) }
+            .sorted { $0.mealName < $1.mealName }
     }
     
-    private func toViewModel(_ meal: Meal) -> MealViewModel {
+    func toViewModel(_ meal: Meal) -> MealViewModel {
         return MealViewModel(mealId: meal.idMeal, mealName: meal.strMeal, thumbnailUrl: meal.strMealThumb)
     }
     
-    private func retrieveMealDetails(_ mealId: String) {
+    func retrieveMealDetails(_ mealId: String) {
         Task {
             let mealDetailResponse = await mealService.retrieveMealDetail(mealId)
             switch mealDetailResponse {
@@ -175,7 +168,7 @@ extension MealsViewController {
         }
     }
     
-    private func toViewModel(_ mealDetailResponse: MealDetailResponse) -> MealDetailViewModel? {
+    func toViewModel(_ mealDetailResponse: MealDetailResponse) -> MealDetailViewModel? {
         guard let meals = mealDetailResponse.meals, let mealDetail = meals.first else {
             return nil
         }

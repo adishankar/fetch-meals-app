@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MealService: MealsDataServiceProtocol {
+class MealService {
     
     private let decoder = JSONDecoder()
     
