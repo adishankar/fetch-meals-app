@@ -62,7 +62,7 @@ class MealDetail: NSObject, Codable {
     @objc var strMeasure19: String?
     @objc var strMeasure20: String?
     
-    let strSource: String
+    let strSource: String?
     let strImageSource: String?
     let strCreativeCommonsConfirmed: String?
     let dateModified: String?

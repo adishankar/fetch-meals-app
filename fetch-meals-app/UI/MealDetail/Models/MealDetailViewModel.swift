@@ -13,7 +13,7 @@ struct MealDetailViewModel {
     let mealName: String
     let imageUrl: String
     let videoUrl: String
-    let sourceUrl: String
+    let sourceUrl: String?
     let area: String
     let tags: [String]
     let ingredients: [MealIngredientViewModel]

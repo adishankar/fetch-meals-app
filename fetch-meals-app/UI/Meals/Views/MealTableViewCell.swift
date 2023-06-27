@@ -13,6 +13,8 @@ class MealTableViewCell: UITableViewCell {
     
     let mealThumbnail: UIImageView = {
         let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 25
         
         return imageView
     }()
