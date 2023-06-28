@@ -10,6 +10,11 @@ import SwiftUI
 
 class MealsViewController: UIViewController {
     
+    var loaderView: UIView = {
+        let hostingVC = UIHostingController(rootView: LoadingView())
+        return hostingVC.view
+    }()
+
     var headerLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 36)
@@ -54,21 +59,33 @@ class MealsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loaderView.isHidden = true
         selectedMeal = nil // reset this value on returning to this page
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        retrieveMeals("dessert")
+        if (meals.isEmpty) {
+            retrieveMeals("dessert")
+        }
     }
     
     private func setupViews() {
         view.backgroundColor = .white
         
+        loaderView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loaderView)
+        NSLayoutConstraint.activate([
+            loaderView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            loaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            loaderView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            loaderView.heightAnchor.constraint(equalToConstant: 5)
+        ])
+        
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(headerLabel)
         NSLayoutConstraint.activate([
             headerLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            headerLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerLabel.topAnchor.constraint(equalTo: loaderView.bottomAnchor, constant: 5),
             headerLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
         
@@ -132,6 +149,7 @@ extension MealsViewController: UITableViewDelegate {
 extension MealsViewController {
     
     func retrieveMeals(_ type: String) {
+        loaderView.isHidden = false
         Task {
             let mealsResponse = await mealService.retrieveMeals(type)
             switch mealsResponse {
@@ -147,6 +165,7 @@ extension MealsViewController {
             case .failure(let error):
                 debugPrint(error)
             }
+            loaderView.isHidden = true
         }
     }
     

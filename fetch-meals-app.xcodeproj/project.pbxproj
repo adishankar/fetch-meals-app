@@ -17,6 +17,7 @@
 		40A538BB2A4BA1CE00516B88 /* fetch_meals_app_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A538BA2A4BA1CE00516B88 /* fetch_meals_app_tests.swift */; };
 		40A538C62A4BA21900516B88 /* meals.json in Resources */ = {isa = PBXBuildFile; fileRef = 40A538C52A4BA21900516B88 /* meals.json */; };
 		40A538C82A4BA24300516B88 /* meal_detail_52891.json in Resources */ = {isa = PBXBuildFile; fileRef = 40A538C72A4BA24300516B88 /* meal_detail_52891.json */; };
+		40A538CA2A4BC7B700516B88 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A538C92A4BC7B700516B88 /* LoadingView.swift */; };
 		40D3B22F2A4692060018797D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B22E2A4692060018797D /* AppDelegate.swift */; };
 		40D3B2312A4692060018797D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2302A4692060018797D /* SceneDelegate.swift */; };
 		40D3B2332A4692060018797D /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3B2322A4692060018797D /* MealsViewController.swift */; };
@@ -51,6 +52,7 @@
 		40A538BA2A4BA1CE00516B88 /* fetch_meals_app_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetch_meals_app_tests.swift; sourceTree = "<group>"; };
 		40A538C52A4BA21900516B88 /* meals.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = meals.json; sourceTree = "<group>"; };
 		40A538C72A4BA24300516B88 /* meal_detail_52891.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = meal_detail_52891.json; sourceTree = "<group>"; };
+		40A538C92A4BC7B700516B88 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		40D3B22B2A4692060018797D /* fetch-meals-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fetch-meals-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D3B22E2A4692060018797D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40D3B2302A4692060018797D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				409D82F12A48BA880066A4F6 /* MealTableViewCell.swift */,
+				40A538C92A4BC7B700516B88 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				409D82FC2A4A1D1C0066A4F6 /* MealDetailViewModel.swift in Sources */,
 				40D3B2572A47DA3C0018797D /* MealViewModel.swift in Sources */,
 				409D82FE2A4A1E440066A4F6 /* MealIngredientViewModel.swift in Sources */,
+				40A538CA2A4BC7B700516B88 /* LoadingView.swift in Sources */,
 				40D3B24C2A47B23C0018797D /* MealService.swift in Sources */,
 				40D3B2332A4692060018797D /* MealsViewController.swift in Sources */,
 				40D3B2532A47B78E0018797D /* NetworkError.swift in Sources */,
