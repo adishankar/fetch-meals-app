@@ -35,13 +35,17 @@ class MealsViewController: UIViewController {
     
     private let mealService = MealService()
     
+    // stores results of get meals API call
     var meals = [MealViewModel]() {
         didSet {
             update(sectionData: meals)
         }
     }
+    
+    // pre-fetched image urls before populating tableview
     var mealImages = [String:UIImage]()
     
+    //
     var selectedMeal: MealDetailViewModel? {
         didSet {
             selectMeal()
@@ -65,7 +69,7 @@ class MealsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if (meals.isEmpty) {
-            retrieveMeals("dessert")
+            retrieveMeals("dessert") // populate table with dessert items
         }
     }
     
@@ -103,9 +107,6 @@ class MealsViewController: UIViewController {
         guard let selectedMeal else {
             return
         }
-//        let mealDetailVC = MealDetailViewController()
-//        mealDetailVC.mealDetailViewModel = selectedMeal
-//        navigationController?.pushViewController(mealDetailVC, animated: true)
         let mealDetailView = MealDetailView(mealDetailViewModel: selectedMeal)
         let hostingVC = UIHostingController(rootView: mealDetailView)
         navigationController?.pushViewController(hostingVC, animated: true)
@@ -238,6 +239,7 @@ extension MealsViewController {
             instructions: instructions)
     }
     
+    /// retrieve an image from a remote url
     func loadImage(_ urlString: String) async -> UIImage? {
         guard let url = URL(string: urlString) else {
             return nil
@@ -252,6 +254,7 @@ extension MealsViewController {
         }
     }
     
+    /// pre-fetch all images in parallel after retrieving meals
     func loadImages(_ meals: [MealViewModel]) async throws -> [String: UIImage] {
         try await withThrowingTaskGroup(of: (MealViewModel, UIImage?).self) { group in
             for meal in meals {

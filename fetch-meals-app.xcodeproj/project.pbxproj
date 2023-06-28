@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		409D82F22A48BA880066A4F6 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82F12A48BA880066A4F6 /* MealTableViewCell.swift */; };
-		409D82F52A48EBAC0066A4F6 /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82F42A48EBAC0066A4F6 /* MealDetailViewController.swift */; };
 		409D82F72A49EF930066A4F6 /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82F62A49EF930066A4F6 /* MealDetail.swift */; };
 		409D82F92A4A17000066A4F6 /* MealDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82F82A4A17000066A4F6 /* MealDetailResponse.swift */; };
 		409D82FC2A4A1D1C0066A4F6 /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409D82FB2A4A1D1C0066A4F6 /* MealDetailViewModel.swift */; };
@@ -42,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		409D82F12A48BA880066A4F6 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
-		409D82F42A48EBAC0066A4F6 /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		409D82F62A49EF930066A4F6 /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
 		409D82F82A4A17000066A4F6 /* MealDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailResponse.swift; sourceTree = "<group>"; };
 		409D82FB2A4A1D1C0066A4F6 /* MealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModel.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 			children = (
 				409D830D2A4A87730066A4F6 /* Views */,
 				409D82FA2A4A1CFD0066A4F6 /* Models */,
-				409D82F42A48EBAC0066A4F6 /* MealDetailViewController.swift */,
 			);
 			path = MealDetail;
 			sourceTree = "<group>";
@@ -359,7 +356,6 @@
 				409D82F92A4A17000066A4F6 /* MealDetailResponse.swift in Sources */,
 				409D830F2A4A87870066A4F6 /* MealDetailView.swift in Sources */,
 				40D3B22F2A4692060018797D /* AppDelegate.swift in Sources */,
-				409D82F52A48EBAC0066A4F6 /* MealDetailViewController.swift in Sources */,
 				40D3B2312A4692060018797D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

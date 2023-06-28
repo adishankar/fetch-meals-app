@@ -20,6 +20,7 @@ class MealDetail: NSObject, Codable {
     let strYoutube: String
     
     // Working with the assumption that there can be up to 20 ingredient and amount fields
+    // Using @objc var to programmatically get field values from NSObject keys
     @objc var strIngredient1: String?
     @objc var strIngredient2: String?
     @objc var strIngredient3: String?
