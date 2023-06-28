@@ -35,6 +35,8 @@ class MealsViewController: UIViewController {
             update(sectionData: meals)
         }
     }
+    var mealImages = [String:UIImage]()
+    
     var selectedMeal: MealDetailViewModel? {
         didSet {
             selectMeal()
@@ -112,7 +114,7 @@ extension MealsViewController: UITableViewDelegate {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? MealTableViewCell else {
                     return nil
                 }
-                cell.setup(mealViewModel)
+                cell.setup(mealViewModel, self.mealImages[mealViewModel.mealId])
                 return cell
             })
     }
@@ -135,6 +137,12 @@ extension MealsViewController {
             switch mealsResponse {
             case .success(let mealsResponse):
                 let mealViewModels = toViewModel(mealsResponse)
+                do {
+                    mealImages = try await loadImages(mealViewModels) // after getting all meals load images
+                } catch(let error) {
+                    debugPrint(error)
+                }
+                
                 meals = mealViewModels
             case .failure(let error):
                 debugPrint(error)
@@ -209,6 +217,38 @@ extension MealsViewController {
             tags: tags,
             ingredients: ingredients,
             instructions: instructions)
+    }
+    
+    func loadImage(_ urlString: String) async -> UIImage? {
+        guard let url = URL(string: urlString) else {
+            return nil
+        }
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            return UIImage(data: data)
+        }
+        catch (let error) {
+            debugPrint(error)
+            return nil
+        }
+    }
+    
+    func loadImages(_ meals: [MealViewModel]) async throws -> [String: UIImage] {
+        try await withThrowingTaskGroup(of: (MealViewModel, UIImage?).self) { group in
+            for meal in meals {
+                group.addTask {
+                    let image = await self.loadImage(meal.thumbnailUrl)
+                    return (meal, image)
+                }
+            }
+            var mealIdImageDictionary = [String : UIImage]()
+            for try await (meal, image) in group {
+                if let image = image {
+                    mealIdImageDictionary[meal.mealId] = image
+                }
+            }
+            return mealIdImageDictionary
+        }
     }
     
 }

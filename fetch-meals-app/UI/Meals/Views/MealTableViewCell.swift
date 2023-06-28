@@ -55,10 +55,12 @@ class MealTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(_ model: MealViewModel) {
+    func setup(_ model: MealViewModel, _ image: UIImage?) {
         self.model = model
         mealLabel.text = model.mealName
-        mealThumbnail.imageFromURL(model.thumbnailUrl)
+        if let image = image {
+            mealThumbnail.image = image
+        }
     }
     
 }
